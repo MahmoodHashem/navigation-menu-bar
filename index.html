@@ -13,7 +13,66 @@
     <title>Navigation Menu Bar</title>
   </head>
   <body>
-    <div class="navigation">
+    <main>
+      
+      <section id="home" class="content active">
+        <h1>Welcome Home</h1>
+        <p>This is your homepage with the latest updates and activities.</p>
+      </section>
+
+      <section id="profile" class="content">
+        <h1>My Profile</h1>
+        <p>View and edit your personal information here.</p>
+        <div class="profile-info">
+          <img src="./assets/images/profile.png" alt="Profile Picture" />
+          <h2>Mahmood Hashemi</h2>
+          <p>Web Developer</p>
+        </div>
+      </section>
+
+      <section id="messages" class="content">
+        <h1>Messages</h1>
+        <div class="message-list">
+          <div class="message">
+            <h3>Jane Smith</h3>
+            <p>Hey, how are you doing?</p>
+          </div>
+          <div class="message">
+            <h3>Mike Johnson</h3>
+            <p>Meeting at 3 PM today</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="photos" class="content">
+        <h1>Photo Gallery</h1>
+        <div class="photo-grid">
+          <img src="/assets/images/Certificating.jpg" alt="Photo 1" />
+          <img src="/assets/images/linkedin.png" alt="Photo 2" />
+          <img src="/assets/images/Presenting.jpg" alt="Photo 3" />
+          <img src="/assets/images/bem.png" alt="Photo 4" />
+        </div>
+      </section>
+
+      <section id="settings" class="content">
+        <h1>Settings</h1>
+        <div class="settings-options">
+          <div class="setting-item">
+            <h3>Account Settings</h3>
+            <p>Manage your account preferences</p>
+          </div>
+          <div class="setting-item">
+            <h3>Privacy</h3>
+            <p>Control your privacy settings</p>
+          </div>
+          <div class="setting-item">
+            <h3>Notifications</h3>
+            <p>Customize your notifications</p>
+          </div>
+        </div>
+      </section>
+    </main>
+    <nav class="navigation">
       <ul>
         <li class="list active">
           <a href="#">
@@ -32,7 +91,7 @@
         <li class="list">
           <a href="#">
             <span class="icon"><ion-icon name="mail"></ion-icon></span>
-            <span class="text">Message</span>
+            <span class="text">Messages</span>
           </a>
         </li>
 
@@ -52,19 +111,30 @@
 
         <div class="indicator"></div>
       </ul>
-    </div>
+    </nav>
 
     <!-- Icons -->
     <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
     <script>
       const list = document.querySelectorAll(".list");
+      const contents = document.querySelectorAll(".content");
       
       list.forEach(function (item) {
         item.addEventListener("click", function () {
+          // Update navigation active state
           list.forEach(function (item2) {
             item2.classList.remove("active");
           });
           this.classList.add("active");
+          
+          // Update content visibility
+          const selectedContent = this.querySelector('.text').textContent.toLowerCase();
+          contents.forEach(content => {
+            content.classList.remove('active');
+            if (content.id === selectedContent) {
+              content.classList.add('active');
+            }
+          });
         });
       });
     </script>
