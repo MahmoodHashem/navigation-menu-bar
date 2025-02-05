@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta name="description" content="Navigation Menu Bar" />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./style.css" />
+    <title>Navigation Menu Bar</title>
+  </head>
+  <body>
+    <div class="navigation">
+      <ul>
+        <li class="list active">
+          <a href="#">
+            <span class="icon"><ion-icon name="home"></ion-icon></span>
+            <span class="text">Home</span>
+          </a>
+        </li>
+
+        <li class="list">
+          <a href="#">
+            <span class="icon"><ion-icon name="person"></ion-icon></span>
+            <span class="text">Profile</span>
+          </a>
+        </li>
+
+        <li class="list">
+          <a href="#">
+            <span class="icon"><ion-icon name="mail"></ion-icon></span>
+            <span class="text">Message</span>
+          </a>
+        </li>
+
+        <li class="list">
+          <a href="#">
+            <span class="icon"><ion-icon name="image"></ion-icon></span>
+            <span class="text">Photos</span>
+          </a>
+        </li>
+
+        <li class="list">
+          <a href="#">
+            <span class="icon"><ion-icon name="cog"></ion-icon></span>
+            <span class="text">Settings</span>
+          </a>
+        </li>
+
+        <div class="indicator"></div>
+      </ul>
+    </div>
+
+    <!-- Icons -->
+    <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+    <script>
+      const list = document.querySelectorAll(".list");
+      
+      list.forEach(function (item) {
+        item.addEventListener("click", function () {
+          list.forEach(function (item2) {
+            item2.classList.remove("active");
+          });
+          this.classList.add("active");
+        });
+      });
+    </script>
+  </body>
+</html>
